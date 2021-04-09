@@ -1,6 +1,8 @@
 # 19.01.20現在最新安定版のイメージを取得
 FROM ruby:2.5.3
 
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+
 # 必要なパッケージのインストール（基本的に必要になってくるものだと思うので削らないこと）
 RUN apt-get update -qq && \
     apt-get install -y build-essential \ 
