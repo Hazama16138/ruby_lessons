@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create!(name:  "Example User",
-             email: "example@railstutorial.org",
-             password:              "foobardoo",
-             password_confirmation: "foobardoo",
+User.create!(name:  "hazama",
+             email: "tanakayama0404@gmail.com",
+             password:              "Tanaka1031",
+             password_confirmation: "Tanaka1031",
              admin: true)
 
 99.times do |n|
@@ -21,4 +21,10 @@ User.create!(name:  "Example User",
                email: email,
                password:              password,
                password_confirmation: password)
+end
+
+users = User.order(:created_at).take(6)
+50.times do
+  content = Faker::Lorem.sentence(10)
+  users.each { |user| user.microposts.create!(content: content) }
 end
